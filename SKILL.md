@@ -25,11 +25,11 @@ allowed-tools:
 # De-slop
 
 The target is plain, direct prose where every sentence carries information. The
-failure mode this skill fixes is writing that sounds emphatic while saying
-little, usually because a plain fact has been given rhetorical decoration.
+skill fixes writing that sounds emphatic while saying little, usually because a
+plain fact has been given rhetorical decoration.
 
-Most of these patterns come from the same instinct, which is to make prose feel
-significant. The goal is to remove decoration without adding significance back. In
+Most of these patterns come from an instinct to make prose feel significant.
+Removing them should leave the facts alone and add nothing in their place. In
 analytics writing the numbers are already interesting, and the decoration makes
 a reader trust the work less.
 
@@ -37,14 +37,14 @@ a reader trust the work less.
 
 **When the user points at one sentence** ("fix this language"), rewrite it, then
 grep the rest of the file and its siblings for the same construction. The user
-almost always wants the pattern gone, not just the instance. Report what else
+usually wants the pattern removed everywhere. Report what else
 you found with `file:line` and the exact quote, and ask before widening the edit
 unless they already said to fix everything.
 
-**When the user asks for a scan**, read the prose, not just grep output. Run
-`scripts/scan_tells.py` first to catch the mechanical tells, then read each
-article's text end to end, because the worst offenders (an aphorism that reads
-smoothly, a claim nobody can check) do not match any regex. Report findings
+**When the user asks for a scan**, run `scripts/scan_tells.py` first to catch
+the mechanical tells, then read each article's text end to end. The worst
+offenders (an aphorism that reads smoothly, a claim nobody can check) match no
+regex. Report findings
 grouped by pattern, most severe first, each as `file:line` plus the quoted text
 so the user can judge it in one pass. Recommend which to fix; let them choose.
 
@@ -79,8 +79,8 @@ the announcement and make the claim.
 - Before: "There is an obvious hypothesis sitting in that, and one game cannot test it: a team winning by 39 every week gets no practice at winning by four."
 - After: "These files cannot say whether a team that wins by 39 every week is any worse at winning by four. The two close games on record both came in the last two weeks, which is not enough to test it."
 
-Note what the fix does with the hedge. Instead of gesturing at a limitation,
-name the question and say what evidence would settle it.
+The fix names the question the data cannot answer and says what evidence
+would settle it, where the original only hinted at a limitation.
 
 ### 3. A colon that delivers an aphorism
 
@@ -93,8 +93,8 @@ a sentence toward a colon that pays off in a slogan.
 - Before: "The retention election is precisely that: a possession you can purchase, at a price."
 - After: "The retention election supplies one, in exchange for a fourth-down snap from your own 20."
 
-The second fix shows the general repair: replace the abstraction with the
-concrete thing it was gesturing at.
+The second fix shows the general repair, which is to replace the abstraction
+with the concrete thing it stood for.
 
 ### 4. Formulaic contrast and negative parallelism
 
@@ -161,17 +161,17 @@ edit, including the character inside HTML entities.
 ### 10. Dramatic setup followed by reversal
 
 "Read those numbers naively and home field looks like a touchdown of advantage.
-It isn't." is fine, because the reversal is the finding. What to cut is a setup
-whose only job is to make the next sentence feel like a revelation. Prefer one
-straightforward sentence.
+It isn't." is fine, because the reversal is the finding. Cut a setup that exists only to
+make the next sentence feel like a revelation, and write one straightforward
+sentence instead.
 
 ## What to leave alone
 
 - Explanatory colons, ordinary idiom, and the author's first person. A line
   like "This is the number that changed how I read the streak" stays.
 - Short sentences and one-line paragraphs that carry content.
-- The author's voice. Do not add personality, opinions or edge to compensate for what
-  you removed. The plain version is the finished version.
+- The author's voice. Do not add personality, opinions or edge to
+  replace what you removed. The plain version is complete as written.
 - Deliberate brand lines on marketing pages, unless the user asks. Flag them
   instead.
 - Facts. Never adjust a number, a date or a claim to make a sentence flow. If a
@@ -200,5 +200,5 @@ python3 ~/.claude/skills/deslop/scripts/scan_tells.py --fragments drafts/post.md
 python3 ~/.claude/skills/deslop/scripts/scan_tells.py --allow-em-dash README.md
 ```
 
-Every hit is a candidate, not a verdict. It misses the smooth aphorisms
-entirely, so it supplements reading the prose and never replaces it.
+Every hit is a candidate that needs judgment. The scanner misses smooth
+aphorisms entirely, so read the prose as well.

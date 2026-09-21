@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Flag mechanical AI-slop tells with line numbers.
 
-Every hit is a candidate for judgment, not a verdict. Smooth aphorisms and
+Every hit is a candidate that needs judgment. Smooth aphorisms and
 unverifiable claims match no regex, so read the prose too.
 
 Usage:

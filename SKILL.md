@@ -4,8 +4,8 @@ description: |
   Remove AI-slop patterns from prose using a strict set of plain-writing rules:
   no verbless emphasis fragments, no announcing an idea before stating it, no
   colon-delivered aphorisms, no formulaic contrast ("not X, but Y"), no
-  personified data or models, no overclaims or promotional lines, and
-  (optionally) no em dashes.
+  personified data or models, no overclaims or promotional lines, no
+  manufactured one-liners chasing quotability, and (optionally) no em dashes.
   Use this whenever the user calls text AI slop, says "fix this language",
   "avoid this pattern", "de-slop", "this reads like AI", or asks to scan,
   review, audit or clean up articles, site copy, drafts, README prose or any
@@ -43,10 +43,19 @@ unless they already said to fix everything.
 
 **When the user asks for a scan**, run `scripts/scan_tells.py` first to catch
 the mechanical tells, then read each article's text end to end. The worst
-offenders (an aphorism that reads smoothly, a claim nobody can check) match no
-regex. Report findings
+offenders (an aphorism that reads smoothly, a manufactured one-liner, a claim
+nobody can check) match no regex. Report findings
 grouped by pattern, most severe first, each as `file:line` plus the quoted text
 so the user can judge it in one pass. Recommend which to fix; let them choose.
+
+**One pass is rarely enough on a document written to sound polished.** A
+three-pass review of one slide deck found personification the first time
+through, more personification the second time (hiding behind a domain-standard
+verb like "explains" used with a vague subject), and a batch of manufactured
+one-liners the third time that were not personification at all. After a scan
+comes back clean, do not report it as done; reread it once more looking
+specifically for pattern 11, since it is the pattern most likely to survive
+a check built around the other ten.
 
 **When fixing**, preserve the fact and the tone. After each edit, re-read the
 whole paragraph, because a rewrite commonly introduces a word repeat the
@@ -124,6 +133,17 @@ Sports idiom is not automatically personification. "The margins never
 compressed" and "the schedule connects the divisions" describe real patterns.
 "The season buries it" and "the data proves it every season" do not.
 
+Causal verbs like "explains" and "predicts" are domain-standard, not
+personification, when the subject is a concrete named variable: "Age explains
+the gap" is a statistical claim, not a colorful one. The same verb turns back
+into personification when the subject is vague or refers to itself: "Nothing
+about the row explains it" and "The value explains its own absence" both read
+as something abstract doing the explaining. Judge the subject, not just the
+verb.
+
+- Before: "The value explains its own absence."
+- After: "The number itself is why it is missing."
+
 ### 6. Overclaims and promotional lines
 
 Superlatives nobody can check, and copy that sells rather than reports.
@@ -164,6 +184,33 @@ edit, including the character inside HTML entities.
 It isn't." is fine, because the reversal is the finding. Cut a setup that exists only to
 make the next sentence feel like a revelation, and write one straightforward
 sentence instead.
+
+### 11. The manufactured one-liner
+
+A sentence built to be quotable rather than to state the fact plainly: an
+ironic reveal, a wry aside, or a turn of phrase doing more work than the
+underlying claim needs. This is not personification and it is not any of the
+other ten patterns; there is no construction to grep for. The tell is whether
+the sentence would work as a pull-quote. If it would, flatten it, even if that
+costs some rhythm.
+
+- Before: "Errors survive all of it."
+- After: "Errors go undetected."
+- Before: "Now nobody has an age, including the five people who reported one."
+- After: "The age is gone for every row, including the ones that had one."
+- Before: "Two good incomes went out with the two missing ages."
+- After: "The two dropped rows also had complete incomes."
+- Before: "each one costs something different"
+- After: name the actual cost, or tie it to a fact already on the page, rather
+  than promising one in the abstract.
+
+This is the hardest pattern to self-check, because a writer reaches for
+exactly these lines when a paragraph feels flat and needs a landing sentence.
+Reread the sentence that closes each point and ask whether it says anything
+the plain version does not. If the only difference is rhythm, cut the rhythm.
+Expect this pattern to survive a first and even a second pass: it hides behind
+sentences that already passed the other ten checks, so a scan that stops once
+those ten are clean is not done.
 
 ## What to leave alone
 

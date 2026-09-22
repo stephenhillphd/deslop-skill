@@ -16,6 +16,7 @@ The rules were developed on data-journalism and sports-analytics writing, so the
 8. Rule of three and anaphora
 9. Em dashes (optional)
 10. Dramatic setup followed by a reversal
+11. Manufactured one-liners chasing quotability
 
 `SKILL.md` gives a before/after example for each, plus a list of things to leave alone.
 

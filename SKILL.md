@@ -5,7 +5,8 @@ description: |
   no verbless emphasis fragments, no announcing an idea before stating it, no
   colon-delivered aphorisms, no formulaic contrast ("not X, but Y"), no
   personified data or models, no overclaims or promotional lines, no
-  manufactured one-liners chasing quotability, and (optionally) no em dashes.
+  manufactured one-liners chasing quotability, no two full clauses spliced with
+  ", and", and (optionally) no em dashes.
   Use this whenever the user calls text AI slop, says "fix this language",
   "avoid this pattern", "de-slop", "this reads like AI", or asks to scan,
   review, audit or clean up articles, site copy, drafts, README prose or any
@@ -30,8 +31,8 @@ plain fact has been given rhetorical decoration.
 
 Most of these patterns come from an instinct to make prose feel significant.
 Removing them should leave the facts alone and add nothing in their place. In
-analytics writing the numbers are already interesting, and the decoration makes
-a reader trust the work less.
+analytics writing the numbers are already interesting. The decoration makes a
+reader trust the work less.
 
 ## Workflow
 
@@ -209,8 +210,28 @@ exactly these lines when a paragraph feels flat and needs a landing sentence.
 Reread the sentence that closes each point and ask whether it says anything
 the plain version does not. If the only difference is rhythm, cut the rhythm.
 Expect this pattern to survive a first and even a second pass: it hides behind
-sentences that already passed the other ten checks, so a scan that stops once
-those ten are clean is not done.
+sentences that already passed the other checks, so a scan that stops once
+those are clean is not done.
+
+### 12. Two independent clauses spliced with ", and"
+
+When a sentence joins two complete clauses with ", and" (or a loose ", so"),
+write them as two sentences. A spliced sentence carries two claims. The reader
+has to find where one ends.
+
+- Before: "You get two attempts, and I keep the higher score."
+- After: "You get two attempts. I keep the higher score."
+- Before: "You may use Claude or ChatGPT, and the last question asks how you used it."
+- After: "You may use Claude or ChatGPT. The last question asks how you used it."
+- Before: "I am away for this class meeting, so you will complete this quiz instead."
+- After: "I am away for this class meeting. You will complete this quiz instead."
+
+Leave three things joined. The first is a real list ("best-of-3, best-of-5 and
+best-of-7"). The second is a compound with one subject ("name the tool and say
+what you asked it"). The third is a ", so" whose causal link is the point of
+the sentence: "The better team wins exactly when it takes 4 of the 7 games, so
+this formula scores the series" stays as one sentence, because splitting it
+loses the reason.
 
 ## What to leave alone
 

@@ -1,6 +1,6 @@
 # deslop
 
-A [Claude Code](https://claude.com/claude-code) skill that removes AI-slop patterns from prose. It targets writing that sounds emphatic while saying little, and it aims for plain, direct sentences that keep the original facts.
+A [Claude Code](https://claude.com/claude-code) skill that removes AI-slop patterns from prose. It targets writing that sounds emphatic while saying little. It aims for plain, direct sentences that keep the original facts.
 
 The rules were developed on data-journalism and sports-analytics writing, so the examples lean that way. The patterns apply to any factual writing.
 
@@ -17,6 +17,7 @@ The rules were developed on data-journalism and sports-analytics writing, so the
 9. Em dashes (optional)
 10. Dramatic setup followed by a reversal
 11. Manufactured one-liners chasing quotability
+12. Two independent clauses spliced with ", and" (write two sentences)
 
 `SKILL.md` gives a before/after example for each, plus a list of things to leave alone.
 

@@ -54,6 +54,12 @@ CHECKS = [
     ("inflated-metaphor", re.compile(
         r"\bparting of the red sea\b|\bstitch(?:es|ing)? [^.;!?]{0,30}together\b"
         r"|\bweb that touches\b|\btapestry\b|\bsymphony\b|\bcrucible\b|\bbeating heart\b", re.I)),
+    # Two full clauses joined by ", and" / ", so". Candidates only: a list whose last item
+    # starts with "the" also matches, so every hit needs a read.
+    ("spliced-clauses", re.compile(
+        r",\s+(?:and|so)\s+(?:(?:I|you|we|they|he|she|it|there)\s+\w+"
+        r"|(?:the|this|that|these|those)\s+(?:\w+\s+){0,3}?(?:is|are|was|were|has|have|had|"
+        r"will|would|can|could|may|might|must|should|do|does|did|\w+s|\w+ed))\b")),
     ("hedge-as-profundity", re.compile(
         r"\b(?:one game|a single game|no single (?:game|number)) (?:cannot|can't|does not|doesn't) "
         r"(?:test|prove|settle|tell)\b", re.I)),

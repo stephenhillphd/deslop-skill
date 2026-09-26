@@ -6,7 +6,8 @@ description: |
   colon-delivered aphorisms, no formulaic contrast ("not X, but Y"), no
   personified data or models, no overclaims or promotional lines, no
   manufactured one-liners chasing quotability, no two full clauses spliced with
-  ", and", and (optionally) no em dashes.
+  ", and", no participial phrase fragments ("[noun phrase], [past participle]
+  into [outcome]"), and (optionally) no em dashes.
   Use this whenever the user calls text AI slop, says "fix this language",
   "avoid this pattern", "de-slop", "this reads like AI", or asks to scan,
   review, audit or clean up articles, site copy, drafts, README prose or any
@@ -56,7 +57,7 @@ verb like "explains" used with a vague subject), and a batch of manufactured
 one-liners the third time that were not personification at all. After a scan
 comes back clean, do not report it as done; reread it once more looking
 specifically for pattern 11, since it is the pattern most likely to survive
-a check built around the other ten.
+a check built around the other patterns.
 
 **When fixing**, preserve the fact and the tone. After each edit, re-read the
 whole paragraph, because a rewrite commonly introduces a word repeat the
@@ -232,6 +233,35 @@ what you asked it"). The third is a ", so" whose causal link is the point of
 the sentence: "The better team wins exactly when it takes 4 of the 7 games, so
 this formula scores the series" stays as one sentence, because splitting it
 loses the reason.
+
+### 13. Participial phrase fragments
+
+Never use participial phrase fragments. Do not write sentences structured as
+"[Noun phrase], [past participle] into [outcome]." Write only in complete,
+grammatically standard sentences with an active main verb.
+
+The shape has no main verb at all: a noun phrase, a comma, and a participle
+("turned", "built", "distilled", "transformed", "made") carrying the action.
+It is the house style of product headlines and it reads as generated. Other
+prepositions make the same fragment ("[noun], built for [audience]",
+"[noun], made from [source]", "[noun], delivered as [format]"). Headlines,
+subheads, eyebrows under a heading and alt text are all in scope; a heading
+is not exempt because it is short.
+
+- Before: "Your Hudl breakdown, turned into the numbers you coach from."
+- After: "Upload your Hudl breakdown and get back the numbers for your season."
+- Before: "Every game you tag, distilled into one page for the binder."
+- After: "GameWeekPrep prints every game you tag on one page for the binder."
+- Before: "A season of play-by-play, built for the staff meeting."
+- After: "The season's play-by-play is laid out for the staff meeting."
+
+The fix names who acts and gives the sentence a finite verb: the coach
+uploads, the product prints, the page shows. If no actor is obvious, the
+product or "you" is usually the honest subject.
+
+Leave a participle that modifies a noun inside a complete sentence ("The data,
+collected in 2020, shows a gap"), and a label that is plainly a label rather
+than a sentence (a table column, a button, a form field).
 
 ## What to leave alone
 

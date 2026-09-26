@@ -65,6 +65,15 @@ CHECKS = [
         r"(?:test|prove|settle|tell)\b", re.I)),
 ]
 
+# "[Noun phrase], [past participle] into [outcome]." A sentence whose only verb is a
+# participle after the comma. The part before the comma must hold no finite verb, which
+# leaves alone "The data, collected in 2020, shows a gap".
+PARTICIPIAL = re.compile(
+    r"^[^,.;:!?]{3,80},\s+(?:\w+(?:ed|en|wn|lt|pt|ght|ung|ade|one|orn|ept|ilt))\s+"
+    r"(?:into|to|as|from|by|for|with|in|on|at|over|under|through|down|up|out)\b[^,;]*[.!?]?$",
+    re.I,
+)
+
 # A colon late in a line, followed by a short verdict-like clause and nothing else.
 COLON_APHORISM = re.compile(r"[a-z]{3,}[^.;!?]{8,}?:\s+(?:a|an|the|you|it|they|we|that|no|every)\b[^.:;!?\d]{5,60}\.\s*$", re.I)
 
@@ -116,6 +125,14 @@ def scan(path, check_fragments=False, allow_em_dash=False):
                 hits.append((n, name, text[:180]))
         if not skip_prose and COLON_APHORISM.search(text):
             hits.append((n, "colon-aphorism?", text[:180]))
+        # Headings are checked too: a product headline is where this shape lives.
+        if not SKIP_ALL.search(line):
+            for s in sentences(text):
+                m = PARTICIPIAL.match(s)
+                if m:
+                    head = s.split(",", 1)[0]
+                    if not any(re.sub(r"[^a-z]", "", w.lower()) in VERBS for w in head.split()):
+                        hits.append((n, "participial-fragment", s[:180]))
         if check_fragments and not skip_prose:
             for s in sentences(text):
                 words = s.split()
